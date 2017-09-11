@@ -1,0 +1,96 @@
+mutation Register {
+  register(name: "test8", username: "test88", phone_number: "test8", email: "test88", password: "tesT123!", password_conf: "tesT123!") {
+    id
+    scope
+    token
+  }
+}
+
+# mutation Login {
+#   login(username: "test", password: "tesT123!") {
+#     id
+#     scope
+#     token
+#   }
+# }
+
+query Users {
+  users {
+    id
+    name
+    username
+    email
+    phone_number
+    books {
+      id
+      title
+      content
+    }
+  }
+}
+
+# query User {
+#   user(id: 1) {
+#     id
+#     name
+#     username
+#     email
+#     phone_number
+#   }
+# }
+
+# mutation UpdateUser {
+#   updateUser(id: 1) {
+#     id
+#     name
+#     username
+#     phone_number
+#     email
+#   }
+# }
+
+# test this last with other user
+#
+# mutation DeleteUser {
+#   deleteUser(id: 6) {
+#     id
+#   }
+# }
+
+# query Books {
+#   books {
+#     id
+#     title
+#     content
+#   }
+# }
+
+# query Book {
+#   book(id: 1) {
+#     id
+#     title
+#     content
+#   }
+# }
+
+# mutation CreateBook {
+#   createBook(title: "test111", content:"test2") {
+#     id
+#     title
+#     content
+#   }
+# }
+
+mutation UpdateBook {
+  updateBook(id: 188, title: "asdf", content: "no") {
+    id
+    title
+    content
+  }
+}
+
+# mutation DeleteBook {
+#   deleteBook(id: 215) {
+#     id
+#   }
+# }
