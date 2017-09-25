@@ -57,7 +57,11 @@ app.use(
     validationRules: [queryComplexity({
       maximumComplexity: 1000,
       variables,
-      onComplete: complexity => console.log('Query Complexity:', complexity),
+      onComplete: (complexity) => {
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Query Complexity:', complexity);
+        }
+      }
     })]
   }))
 );

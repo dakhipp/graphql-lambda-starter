@@ -9,7 +9,8 @@
     "start": "nodemon server.js",
     "zip": "rm app.zip ; zip -r ./app.zip . -x '*.DS_Store'",
     "deploy": "npm run zip ; aws lambda update-function-code --function-name graphql --zip-file fileb://app.zip ; rm app.zip",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "NODE_ENV=testing jest --forceExit --coverage --verbose"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +35,9 @@
   "devDependencies": {
     "eslint": "^4.6.1",
     "eslint-config-airbnb-base": "^12.0.0",
-    "eslint-plugin-import": "^2.7.0"
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.1.0",
+    "jest": "^21.1.0",
+    "supertest": "^3.0.0"
   }
 }

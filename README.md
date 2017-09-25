@@ -14,6 +14,10 @@ Sequalize Steps:
 5. sequelize db:migrate (apply migration created in last step)
 6. ---- (no command, must add any changes to the model manually after a migration)
 
+Initialize Test DB:
+1. createdb graphql-lambda-test
+2. NODE_ENV=testing sequelize db:migrate
+
 Important PostgreSQL Commands:
 - psql postgres -U root (connect to database as user)
 - \l (list databases)

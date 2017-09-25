@@ -15,8 +15,8 @@ const dbHost = process.env.DBHOST;
 // set default db name based on .env file, overwrite if testing
 let dbName = process.env.DBNAME;
 // if testing use the test db instead
-if (process.env.NODE_ENV === 'test') {
-  dbName = `${dbName}_test`;
+if (process.env.NODE_ENV === 'testing') {
+  dbName = `${dbName}-test`;
 }
 
 // set string up with user and password later (might need port after host)
@@ -36,7 +36,7 @@ const dbConfig = {
   },
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV !== 'development') {
   dbConfig.logging = false;
 }
 

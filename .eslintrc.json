@@ -1,7 +1,14 @@
 {
-  "extends": "eslint-config-airbnb-base",
+  "extends": ["eslint-config-airbnb-base"],
+  "env": {
+    "jest": true
+  },
+  "plugins": [
+    "jest"
+  ],
   "rules": {
     "comma-dangle": 0,
-    "no-console": 1
+    "no-console": 1,
+    "arrow-body-style": 0
   }
 }
