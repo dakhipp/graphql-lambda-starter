@@ -29,7 +29,7 @@ const userQueries = {
       if (requiredProvided(1, user) && scopeIsValid(SCOPE, user.scope)) {
         return getAll(args.perPage, args.page);
       }
-      return new Error('Insufficient scope');
+      return new Error('Insufficient scope.');
     },
   },
   user: {
@@ -45,7 +45,7 @@ const userQueries = {
       if (requiredProvided(id, user) && scopeIsValid(SCOPE, user.scope)) {
         return getById(id);
       }
-      return new Error('Insufficient scope');
+      return new Error('Insufficient scope.');
     },
   },
 };

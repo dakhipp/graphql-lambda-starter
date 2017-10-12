@@ -10,7 +10,7 @@
     "zip": "rm app.zip ; zip -r ./app.zip . -x '*.DS_Store'",
     "deploy": "npm run zip ; aws lambda update-function-code --function-name graphql --zip-file fileb://app.zip ; rm app.zip",
     "lint": "eslint .",
-    "test": "NODE_ENV=testing jest --forceExit --coverage --verbose"
+    "test": "NODE_ENV=testing jest --coverage --verbose"
   },
   "keywords": [],
   "author": "",

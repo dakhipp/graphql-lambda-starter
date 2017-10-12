@@ -18,7 +18,7 @@ afterAll((done) => {
 });
 
 describe('Integration: Auth Mutations', () => {
-  test('Register should succeed with a user that does not exist.', (done) => {
+  test('Register should succeed with a user that does not exist and return a token.', (done) => {
     const query = buildRegisterQuery({
       name: 'name',
       username: 'username',
@@ -34,11 +34,12 @@ describe('Integration: Auth Mutations', () => {
       .then((response) => {
         expect(response.statusCode).toBe(200);
         expect(response.body.data.register.id).toBe('1');
+        expect(response.body.data.register.token).toBeTruthy();
         done();
       });
   });
 
-  test('Register should fail if the user already exists.', (done) => {
+  test('Register should fail if the user already exists, with error: "User already exists."', (done) => {
     const query = buildRegisterQuery({
       name: 'name',
       username: 'username',
@@ -58,7 +59,7 @@ describe('Integration: Auth Mutations', () => {
       });
   });
 
-  test('Register should fail is password and password confirmation do not match.', (done) => {
+  test('Register should fail if password and password confirmation do not match, with error: "Password does not match password confirmation."', (done) => {
     const query = buildRegisterQuery({
       name: 'name123',
       username: 'username123',
@@ -78,7 +79,7 @@ describe('Integration: Auth Mutations', () => {
       });
   });
 
-  test('Register should fail if password does not meet complexity requirements.', (done) => {
+  test('Register should fail if password does not meet complexity requirements, with error: "Password does not match minimum complexity requirements."', (done) => {
     const query = buildRegisterQuery({
       name: 'name123',
       username: 'username123',
@@ -98,7 +99,7 @@ describe('Integration: Auth Mutations', () => {
       });
   });
 
-  test('Log in should succeed with existing user.', (done) => {
+  test('Log in should succeed with existing user and return a token.', (done) => {
     const query = buildLoginQuery({
       username: 'username',
       password: 'Password123!',
@@ -114,7 +115,7 @@ describe('Integration: Auth Mutations', () => {
       });
   });
 
-  test('Log in should fail with a non-existing user.', (done) => {
+  test('Log in should fail with a non-existing user, with error: "Invalid credentials."', (done) => {
     const query = buildLoginQuery({
       username: '123',
       password: 'Password',
