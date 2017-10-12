@@ -1,7 +1,7 @@
 {
   "name": "graphql-lambda-starter",
   "version": "1.0.0",
-  "description": "GraphQL Serverless API starter.",
+  "description": "GraphQL serverless API starter.",
   "main": "index.js",
   "scripts": {
     "server": "node server.js",
@@ -12,8 +12,8 @@
     "lint": "eslint .",
     "test": "NODE_ENV=testing jest --coverage --verbose"
   },
+  "engine": "node >= 6.10.0",
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "aws-serverless-express": "^2.2.0",
